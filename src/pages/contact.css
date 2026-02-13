@@ -1,0 +1,359 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contact {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 90vh;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.contact-form-section {
+  padding: 40px;
+  background: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-header {
+  margin-bottom: 30px;
+}
+
+.contact-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #333;
+  margin: 10px 0;
+  background: linear-gradient(135deg, #333333, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-header p {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #333;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.phone-input {
+  display: flex;
+  gap: 10px;
+}
+
+.country-code {
+  padding: 12px 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 0.9rem;
+  min-width: 80px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.phone-input input {
+  flex: 1;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #333333, #000000);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Right Side - Animated Image Section */
+.contact-image-section {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.floating-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(135, 206, 250, 0.4), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(135, 206, 250, 0.3), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: particleFloat 20s linear infinite;
+}
+
+.wave-animation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    rgba(135, 206, 250, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 25%, 
+    transparent 50%, 
+    rgba(135, 206, 250, 0.1) 75%, 
+    rgba(255, 255, 255, 0.05) 100%);
+  background-size: 400px 400px;
+  animation: waveMove 15s ease-in-out infinite;
+}
+
+.promo-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  padding: 40px;
+}
+
+.winter-text {
+  font-size: 4rem;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: -10px;
+  opacity: 0.9;
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+.savings-text {
+  font-size: 4.5rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: textPulse 2s ease-in-out infinite;
+}
+
+.offer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.percentage {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #87CEEB;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: scaleAnimation 2.5s ease-in-out infinite;
+}
+
+.duration, .months, .sizes {
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.move-in-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: 0.8;
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes particleFloat {
+  0% { transform: translateY(100vh) translateX(0px); }
+  100% { transform: translateY(-100px) translateX(100px); }
+}
+
+@keyframes waveMove {
+  0%, 100% { transform: translateX(-50px) translateY(0px); }
+  25% { transform: translateX(50px) translateY(-20px); }
+  50% { transform: translateX(-30px) translateY(-10px); }
+  75% { transform: translateX(30px) translateY(-15px); }
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+  100% { text-shadow: 0 0 20px rgba(135, 206, 250, 0.8), 0 0 30px rgba(135, 206, 250, 0.6); }
+}
+
+@keyframes textPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes scaleAnimation {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+  
+  .contact-form-section {
+    padding: 30px;
+  }
+  
+  .contact-image-section {
+    min-height: 400px;
+  }
+  
+  .winter-text {
+    font-size: 3rem;
+  }
+  
+  .savings-text {
+    font-size: 3.5rem;
+  }
+  
+  .percentage {
+    font-size: 2.5rem;
+  }
+  
+  .duration, .months, .sizes {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 10px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .contact-form-section {
+    padding: 20px;
+  }
+  
+  .contact-header h1 {
+    font-size: 2rem;
+  }
+  
+  .winter-text {
+    font-size: 2.5rem;
+  }
+  
+  .savings-text {
+    font-size: 3rem;
+  }
+  
+  .percentage {
+    font-size: 2rem;
+  }
+  
+  .duration, .months, .sizes {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .phone-input {
+    flex-direction: column;
+  }
+  
+  .country-code {
+    min-width: 100%;
+  }
+  
+  .promo-content {
+    padding: 20px;
+  }
+}

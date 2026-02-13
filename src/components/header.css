@@ -1,0 +1,130 @@
+/* ===== HEADER CONTAINER ===== */
+.header {
+  width: 100%;
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 50px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* ===== LEFT SIDE (LOGO + TRUCK) ===== */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  height: 65px;
+  object-fit: contain;
+}
+
+.truck {
+  height: 65px;
+  object-fit: contain;
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover Effect */
+.nav a:hover {
+  color: #ff6600;
+}
+
+/* Active NavLink */
+.nav a.active {
+  color: #ff6600;
+}
+
+/* Optional underline animation */
+.nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ff6600;
+  transition: 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+/* ===== RIGHT SIDE BUTTON ===== */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.reserve-btn {
+  background-color: #ff6600;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reserve-btn:hover {
+  background-color: #e65c00;
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  .nav {
+    gap: 20px;
+  }
+
+  .logo,
+  .truck {
+    height: 55px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none; /* hide nav on mobile (can add hamburger later) */
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+
+  .logo,
+  .truck {
+    height: 50px;
+  }
+
+  .reserve-btn {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}

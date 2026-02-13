@@ -1,0 +1,503 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.storage-form {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 0 40px; /* Added padding on both sides */
+}
+
+.storage-header {
+  background-color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #ddd;
+  margin: 0 -20px; /* Compensate for inner padding */
+}
+
+.storage-company-info h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.storage-company-info p {
+  margin: 1px 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.storage-company-info a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.storage-language-selector select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: white;
+  font-size: 12px;
+}
+
+.storage-navigation {
+  background-color: #2c5530;
+  display: flex;
+  padding: 0;
+  margin: 0 -20px; /* Compensate for inner padding */
+}
+
+.storage-nav-link {
+  padding: 10px 18px;
+  color: white;
+  text-decoration: none;
+  border-right: 1px solid #1a3a1e;
+  font-size: 13px;
+  transition: background-color 0.3s;
+}
+
+.storage-nav-link:last-child {
+  border-right: none;
+}
+
+.storage-nav-link:hover,
+.storage-nav-link.storage-active {
+  background-color: #1a3a1e;
+}
+
+.storage-main-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  background-color: white;
+  min-height: 400px;
+  margin: 0 -20px; /* Compensate for inner padding */
+}
+
+.storage-left-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.storage-site-selection h2 {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: normal;
+}
+
+.storage-site-selection em {
+  font-style: italic;
+}
+
+.storage-location-info {
+  margin-bottom: 15px;
+}
+
+.storage-location-info h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.storage-location-info p {
+  margin: 1px 0;
+  color: #666;
+  font-size: 12px;
+}
+
+.storage-location-info a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.storage-map-container {
+  position: relative;
+}
+
+.storage-view-map-btn {
+  background-color: #e8f4fd;
+  border: 1px solid #b3d9f7;
+  color: #1a73e8;
+  padding: 4px 8px;
+  font-size: 11px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.storage-map-placeholder {
+  width: 100%;
+  height: 150px;
+  background-color: #e5e3df;
+  border: 1px solid #ccc;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.storage-map-marker {
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.storage-google-logo {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 10px;
+  color: #666;
+}
+
+.storage-right-section {
+  padding: 20px 30px;
+}
+
+.storage-reservation-form h2 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: normal;
+}
+
+.storage-required-note {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.storage-form-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.storage-form-row label {
+  font-size: 12px;
+  color: #333;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.storage-form-row input,
+.storage-form-row textarea {
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  background-color: #fffacd;
+}
+
+.storage-form-row textarea {
+  resize: vertical;
+  font-family: inherit;
+  background-color: white;
+}
+
+.storage-appointment-link {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.storage-appointment-link a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* Units Section - Compact Design with Padding */
+.storage-units-section {
+  margin: 15px 0 20px 0; /* Removed horizontal margin, using form padding instead */
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.storage-table-wrapper {
+  border: 2px solid #999;
+  border-radius: 4px;
+  background-color: white;
+  position: relative;
+}
+
+.storage-table-container {
+  max-height: 200px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Custom Scrollbar - Exactly like reference */
+.storage-table-container::-webkit-scrollbar {
+  width: 16px;
+}
+
+.storage-table-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-left: 1px solid #ccc;
+}
+
+.storage-table-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #e8e8e8 0%, #d0d0d0 50%, #b8b8b8 100%);
+  border: 1px solid #999;
+  border-radius: 0;
+}
+
+.storage-table-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #d0d0d0 0%, #b8b8b8 50%, #a0a0a0 100%);
+}
+
+.storage-table-container::-webkit-scrollbar-button:vertical:start:decrement {
+  background: linear-gradient(to bottom, #f0f0f0 0%, #e0e0e0 100%);
+  border: 1px solid #999;
+  height: 16px;
+  display: block;
+}
+
+.storage-table-container::-webkit-scrollbar-button:vertical:end:increment {
+  background: linear-gradient(to bottom, #f0f0f0 0%, #e0e0e0 100%);
+  border: 1px solid #999;
+  height: 16px;
+  display: block;
+}
+
+.storage-table-container::-webkit-scrollbar-button:vertical:start:decrement:hover,
+.storage-table-container::-webkit-scrollbar-button:vertical:end:increment:hover {
+  background: linear-gradient(to bottom, #e0e0e0 0%, #d0d0d0 100%);
+}
+
+.storage-units-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  font-family: Arial, sans-serif;
+}
+
+.storage-units-table th {
+  background: linear-gradient(to bottom, #9db33f 0%, #8ba838 100%);
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 11px;
+  border-right: 1px solid #7a9630;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  line-height: 1.2;
+}
+
+.storage-units-table th:last-child {
+  border-right: none;
+}
+
+.storage-units-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  color: #333;
+  font-size: 11px;
+  text-align: center;
+  background-color: white;
+}
+
+.storage-units-table td:last-child {
+  border-right: none;
+}
+
+.storage-units-table tr:nth-child(even) td {
+  background-color: #f8f8f8;
+}
+
+.storage-select-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.storage-select-btn:hover {
+  background-color: #357abd;
+}
+
+.storage-table-footer {
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.storage-footer-left {
+  flex: 1;
+}
+
+.storage-help-link {
+  color: #4a90e2;
+  text-decoration: underline;
+  font-size: 11px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.storage-reservation-note {
+  color: #d32f2f;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.storage-footer-right {
+  display: flex;
+  gap: 6px;
+}
+
+.storage-continue-btn,
+.storage-start-over-btn {
+  padding: 6px 12px;
+  border: 1px solid #666;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.storage-continue-btn {
+  background: linear-gradient(to bottom, #666 0%, #555 100%);
+  color: white;
+}
+
+.storage-start-over-btn {
+  background: linear-gradient(to bottom, #888 0%, #777 100%);
+  color: white;
+}
+
+.storage-continue-btn:hover {
+  background: linear-gradient(to bottom, #555 0%, #444 100%);
+}
+
+.storage-start-over-btn:hover {
+  background: linear-gradient(to bottom, #777 0%, #666 100%);
+}
+
+.storage-footer {
+  background-color: white;
+  border-top: 1px solid #ddd;
+  padding: 15px 20px;
+  text-align: center;
+  margin: 0 -20px; /* Compensate for inner padding */
+}
+
+.storage-footer-nav {
+  margin-bottom: 15px;
+}
+
+.storage-footer-nav a {
+  color: #4a90e2;
+  text-decoration: none;
+  margin: 0 3px;
+  font-size: 12px;
+}
+
+.storage-footer-nav span {
+  color: #666;
+  margin: 0 3px;
+  font-size: 12px;
+}
+
+.storage-footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.storage-footer-logo img,
+.storage-security-badge img {
+  max-height: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .storage-form {
+    padding: 0 15px; /* Reduced padding on mobile */
+  }
+  
+  .storage-header {
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 -15px;
+  }
+  
+  .storage-navigation {
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+  
+  .storage-main-content {
+    grid-template-columns: 1fr;
+    margin: 0 -15px;
+  }
+  
+  .storage-left-section {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .storage-form-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+  
+  .storage-form-row label {
+    text-align: left;
+    padding-right: 0;
+  }
+  
+  .storage-table-footer {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  
+  .storage-table-container {
+    max-height: 180px;
+  }
+  
+  .storage-footer {
+    margin: 0 -15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .storage-form {
+    padding: 0 10px; /* Even smaller padding on very small screens */
+  }
+  
+  .storage-header,
+  .storage-navigation,
+  .storage-main-content,
+  .storage-footer {
+    margin: 0 -10px;
+  }
+}
