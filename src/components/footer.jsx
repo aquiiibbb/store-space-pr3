@@ -50,23 +50,7 @@ export default function Footer() {
         </div>
 
       </div>
-
-      {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <p>
-          <strong>DISCLAIMER:</strong> By providing my phone number to San Felipe Storage, 
-          I agree and acknowledge that San Felipe Storage may send text messages 
-          to my wireless phone number for any purpose. Message and data rates may apply.
-          Message frequency will vary, and you will be able to Opt-out by replying “STOP”.
-        </p>
-      </div>
-
-      {/* BOTTOM BAR */}
-      <div className="footer-bottom">
-        <p className="privacy">Privacy Policy</p>
-        <p>Back to Top</p>
-        <p>©2024 San Felipe Storage by Dove Media Marketing</p>
-      </div>
+    
 
     </footer>
   );
