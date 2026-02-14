@@ -1,3 +1,8 @@
+/* ================================== */
+/* MOBILE RESPONSIVE - PART 1 */
+/* ================================== */
+
+/* Base responsive improvements */
 * {
   margin: 0;
   padding: 0;
@@ -10,23 +15,52 @@
 }
 
 /* ================================== */
+/* HERO SECTION - MOBILE RESPONSIVE */
+/* ================================== */
+
 .hero {
   height: 80vh;
-  background-size: cover;
-  background-position: center;
+  position: relative;
   display: flex;
   align-items: center;
   padding-left: 100px;
-  position: relative;
+  overflow: hidden;
+}
+
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
 }
 
 .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.65);
   padding: 40px;
   max-width: 500px;
   border-radius: 15px;
   color: white;
   backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 2;
 }
 
 .hero-overlay h1 {
@@ -37,17 +71,21 @@
 }
 
 .hero-overlay h2 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  font-weight: 400;
-  color: #e0e0e0;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #d4af37;
 }
 
 .hero-overlay p {
   font-size: 16px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   line-height: 1.8;
   color: #f0f0f0;
+}
+
+.hero-overlay p:last-of-type {
+  margin-bottom: 30px;
 }
 
 .rent-btn {
@@ -68,7 +106,75 @@
   box-shadow: 0 12px 30px rgba(74, 99, 168, 0.4);
 }
 
+/* Slider Controls */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.prev {
+  left: 30px;
+}
+
+.slider-btn.next {
+  right: 30px;
+}
+
+/* Slider Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 3;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #d4af37;
+  border-color: #d4af37;
+}
+
+.dot:hover {
+  border-color: #d4af37;
+}
+
 /* ================================== */
+/* HERO BANNER - MOBILE RESPONSIVE */
+/* ================================== */
+
 .hero-banner {
   background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
   padding: 120px 80px;
@@ -131,6 +237,303 @@
 }
 
 /* ================================== */
+/* MOBILE RESPONSIVE BREAKPOINTS */
+/* ================================== */
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+  .hero {
+    padding-left: 60px;
+  }
+  
+  .hero-overlay {
+    max-width: 450px;
+    padding: 35px;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 36px;
+  }
+  
+  .hero-banner {
+    padding: 100px 60px;
+    min-height: 450px;
+  }
+  
+  .banner-card {
+    padding: 50px 40px;
+  }
+  
+  .banner-card h1 {
+    font-size: 2.8rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .hero {
+    padding-left: 30px;
+    height: 70vh;
+  }
+  
+  .hero-overlay {
+    padding: 30px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  
+  .hero-overlay h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .hero-overlay p {
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+  
+  .rent-btn {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+  
+  .slider-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    padding: 12px;
+  }
+  
+  .slider-btn.prev {
+    left: 20px;
+  }
+  
+  .slider-btn.next {
+    right: 20px;
+  }
+  
+  .slider-dots {
+    bottom: 20px;
+    gap: 10px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .hero-banner {
+    padding: 80px 40px;
+    min-height: 400px;
+  }
+  
+  .banner-card {
+    padding: 40px 30px;
+  }
+  
+  .banner-card h1 {
+    font-size: 2.4rem;
+    margin-bottom: 18px;
+  }
+  
+  .banner-card p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-button {
+    padding: 14px 35px;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 60vh;
+  }
+  
+  .hero-overlay {
+    padding: 25px;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  
+  .hero-overlay h2 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .hero-overlay p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .hero-overlay p:last-of-type {
+    margin-bottom: 25px;
+  }
+  
+  .rent-btn {
+    padding: 12px 24px;
+    font-size: 13px;
+    border-radius: 25px;
+  }
+  
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .slider-btn.prev {
+    left: 15px;
+  }
+  
+  .slider-btn.next {
+    right: 15px;
+  }
+  
+  .slider-dots {
+    bottom: 15px;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-width: 1px;
+  }
+  
+  .hero-banner {
+    padding: 60px 20px;
+    min-height: 350px;
+  }
+  
+  .banner-card {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+  
+  .banner-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+  }
+  
+  .banner-card p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+  
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .hero {
+    height: 55vh;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .hero-overlay {
+    padding: 20px;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  
+  .hero-overlay h2 {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  
+  .hero-overlay p {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  
+  .hero-overlay p:last-of-type {
+    margin-bottom: 20px;
+  }
+  
+  .rent-btn {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+  
+  .slider-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .slider-btn.prev {
+    left: 10px;
+  }
+  
+  .slider-btn.next {
+    right: 10px;
+  }
+  
+  .hero-banner {
+    padding: 50px 15px;
+    min-height: 320px;
+  }
+  
+  .banner-card {
+    padding: 25px 15px;
+  }
+  
+  .banner-card h1 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+  
+  .banner-card p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-button {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+
+
+/*part 2*/
+/* ================================== */
+/* MOBILE RESPONSIVE - PART 2 */
+/* ================================== */
+
+/* ================================== */
+/* UNITS SHOWCASE - MOBILE RESPONSIVE */
+/* ================================== */
+
 .units-showcase {
   padding: 100px 80px;
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
@@ -246,6 +649,9 @@
 }
 
 /* ================================== */
+/* WHY SECTION - MOBILE RESPONSIVE */
+/* ================================== */
+
 .why-section {
   padding: 100px 80px;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -300,6 +706,9 @@
 }
 
 /* ================================== */
+/* FEATURES SECTION - MOBILE RESPONSIVE */
+/* ================================== */
+
 .features-section {
   background: linear-gradient(135deg, #f1f2f6, #ddd);
   padding: 100px 80px;
@@ -354,6 +763,349 @@
 }
 
 /* ================================== */
+/* MOBILE RESPONSIVE BREAKPOINTS - PART 2 */
+/* ================================== */
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+  .units-showcase,
+  .why-section,
+  .features-section {
+    padding: 80px 60px;
+  }
+
+  .units-showcase h2,
+  .why-section h2,
+  .features-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+  }
+
+  .units-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 35px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .units-showcase,
+  .why-section,
+  .features-section {
+    padding: 70px 40px;
+  }
+
+  .units-showcase h2,
+  .why-section h2,
+  .features-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
+  .units-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .unit-card.featured {
+    transform: scale(1);
+  }
+
+  .unit-card.featured:hover {
+    transform: translateY(-15px);
+  }
+
+  .unit-image-wrapper {
+    height: 220px;
+  }
+
+  .unit-info {
+    padding: 22px;
+  }
+
+  .unit-info h3 {
+    font-size: 1.4rem;
+  }
+
+  .unit-size {
+    font-size: 1rem;
+  }
+
+  .unit-desc {
+    font-size: 0.9rem;
+  }
+
+  .price {
+    padding: 9px 18px;
+    font-size: 0.95rem;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .why-card {
+    padding: 35px;
+  }
+
+  .why-icon {
+    font-size: 2.8rem;
+    margin-bottom: 18px;
+  }
+
+  .why-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .why-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .feature-item {
+    padding: 22px;
+    font-size: 0.95rem;
+    gap: 12px;
+  }
+
+  .feature-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .units-showcase,
+  .why-section,
+  .features-section {
+    padding: 50px 20px;
+  }
+
+  .units-showcase h2,
+  .why-section h2,
+  .features-section h2 {
+    font-size: 1.9rem;
+    margin-bottom: 35px;
+    line-height: 1.3;
+  }
+
+  .unit-card {
+    border-radius: 15px;
+  }
+
+  .unit-image-wrapper {
+    height: 200px;
+  }
+
+  .unit-badge {
+    top: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 15px;
+  }
+
+  .unit-info {
+    padding: 20px;
+  }
+
+  .unit-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+
+  .unit-size {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+
+  .unit-desc {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .price {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+  }
+
+  .why-card {
+    padding: 25px;
+    border-radius: 15px;
+  }
+
+  .why-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .why-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .why-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .feature-item {
+    padding: 18px;
+    font-size: 0.9rem;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .units-showcase,
+  .why-section,
+  .features-section {
+    padding: 40px 15px;
+  }
+
+  .units-showcase h2,
+  .why-section h2,
+  .features-section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+  }
+
+  .unit-image-wrapper {
+    height: 180px;
+  }
+
+  .unit-badge {
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .unit-info {
+    padding: 18px;
+  }
+
+  .unit-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .unit-size {
+    font-size: 0.9rem;
+  }
+
+  .unit-desc {
+    font-size: 0.8rem;
+  }
+
+  .price {
+    padding: 7px 14px;
+    font-size: 0.85rem;
+  }
+
+  .why-card {
+    padding: 20px;
+  }
+
+  .why-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
+
+  .why-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .why-card p {
+    font-size: 0.85rem;
+  }
+
+  .feature-item {
+    padding: 15px;
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+
+  .feature-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+}
+
+/* ================================== */
+/* HOVER EFFECTS ADJUSTMENTS FOR MOBILE */
+/* ================================== */
+
+@media (max-width: 768px) {
+  /* Reduce hover effects on mobile for better performance */
+  .unit-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .why-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-item:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Minimal hover effects on small screens */
+  .unit-card:hover,
+  .why-card:hover,
+  .feature-item:hover {
+    transform: translateY(-2px);
+  }
+  
+  .unit-card:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/*part 3*/
+
+
+/* ================================== */
+/* MOBILE RESPONSIVE - PART 3 (FINAL) */
+/* ================================== */
+
+/* ================================== */
+/* FACILITY GALLERY - MOBILE RESPONSIVE */
+/* ================================== */
+
 .facility-gallery {
   padding: 100px 80px;
   background: white;
@@ -428,6 +1180,9 @@
 }
 
 /* ================================== */
+/* PROMISE SECTION - MOBILE RESPONSIVE */
+/* ================================== */
+
 .promise-container {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 120px 80px;
@@ -437,7 +1192,6 @@
   overflow: hidden;
 }
 
-/* Animated background elements */
 .promise-container::before {
   content: '';
   position: absolute;
@@ -515,7 +1269,6 @@
   overflow: hidden;
 }
 
-/* Gradient border effect on hover */
 .promise-item::before {
   content: '';
   position: absolute;
@@ -618,131 +1371,106 @@
 }
 
 /* ================================== */
+/* MOBILE RESPONSIVE BREAKPOINTS - PART 3 */
+/* ================================== */
 
-/* Tablets and smaller desktops */
+/* Large tablets and small desktops */
 @media (max-width: 1024px) {
-  .hero {
-    padding-left: 50px;
-  }
-
-  .units-showcase,
-  .why-section,
-  .features-section,
   .facility-gallery,
   .promise-container {
     padding: 80px 60px;
   }
 
-  .units-showcase h2,
-  .why-section h2,
-  .features-section h2,
   .facility-gallery h2,
   .promise-title h2 {
     font-size: 2.5rem;
-  }
-
-  .banner-card h1 {
-    font-size: 2.8rem;
+    margin-bottom: 50px;
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 250px);
+    gap: 18px;
   }
 
   .gallery-item.large {
-    grid-column: span 1;
+    grid-column: span 2;
     grid-row: span 1;
+  }
+
+  .promise-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .promise-container::before,
+  .promise-container::after {
+    width: 400px;
+    height: 400px;
   }
 }
 
 /* Tablets */
 @media (max-width: 768px) {
-  .hero {
-    padding-left: 30px;
-    height: 60vh;
-  }
-
-  .hero-overlay {
-    padding: 25px;
-    max-width: 100%;
-  }
-
-  .hero-overlay h1 {
-    font-size: 28px;
-  }
-
-  .hero-overlay h2 {
-    font-size: 18px;
-  }
-
-  .hero-overlay p {
-    font-size: 14px;
-  }
-
-  .hero-banner {
-    padding: 60px 30px;
-    min-height: 400px;
-  }
-
-  .banner-card {
-    padding: 30px 20px;
-  }
-
-  .banner-card h1 {
-    font-size: 2rem;
-  }
-
-  .banner-card p {
-    font-size: 1rem;
-  }
-
-  .units-showcase,
-  .why-section,
-  .features-section,
   .facility-gallery,
   .promise-container {
-    padding: 60px 30px;
+    padding: 70px 40px;
   }
 
-  .units-showcase h2,
-  .why-section h2,
-  .features-section h2,
   .facility-gallery h2,
   .promise-title h2 {
     font-size: 2.2rem;
     margin-bottom: 40px;
   }
 
-  .units-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 15px;
   }
 
-  .unit-card.featured {
-    transform: scale(1);
+  .gallery-item {
+    height: 220px;
+    border-radius: 15px;
   }
 
-  .unit-card.featured:hover {
-    transform: translateY(-15px);
+  .gallery-item.large {
+    grid-column: span 1;
+    grid-row: span 1;
   }
 
-  .why-grid,
+  .gallery-overlay {
+    padding: 20px;
+  }
+
+  .gallery-overlay h3 {
+    font-size: 1.2rem;
+  }
+
+  .gallery-overlay p {
+    font-size: 0.9rem;
+  }
+
+  .promise-title {
+    margin-bottom: 60px;
+  }
+
+  .promise-subtitle {
+    font-size: 1.1rem;
+  }
+
   .promise-grid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
 
-  .why-card {
-    padding: 30px;
-  }
-
   .promise-item {
-    padding: 30px 20px;
+    padding: 35px 25px;
+    border-radius: 20px;
   }
 
   .promise-icon-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
   .icon-circle {
@@ -760,46 +1488,13 @@
   }
 
   .promise-item h3 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
   }
 
   .promise-item p {
     font-size: 0.95rem;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .feature-item {
-    padding: 20px;
-    font-size: 0.95rem;
-  }
-
-  .feature-icon {
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 15px;
-  }
-
-  .gallery-item {
-    height: 250px;
-  }
-
-  .gallery-item.large {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-
-  .promise-subtitle {
-    font-size: 1rem;
+    line-height: 1.6;
   }
 
   .promise-container::before,
@@ -811,140 +1506,26 @@
 
 /* Mobile phones */
 @media (max-width: 480px) {
-  .hero {
-    padding-left: 20px;
-    height: 50vh;
-  }
-
-  .hero-overlay {
-    padding: 20px;
-  }
-
-  .hero-overlay h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  .hero-overlay h2 {
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-
-  .hero-overlay p {
-    font-size: 13px;
-    margin-bottom: 20px;
-  }
-
-  .rent-btn {
-    padding: 12px 24px;
-    font-size: 13px;
-  }
-
-  .hero-banner {
-    padding: 40px 20px;
-    min-height: 350px;
-  }
-
-  .banner-card {
-    padding: 25px 15px;
-  }
-
-  .banner-card h1 {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-  }
-
-  .banner-card p {
-    font-size: 0.95rem;
-    margin-bottom: 25px;
-  }
-
-  .cta-button {
-    padding: 12px 30px;
-    font-size: 0.95rem;
-    gap: 8px;
-  }
-
-  .units-showcase,
-  .why-section,
-  .features-section,
   .facility-gallery,
   .promise-container {
-    padding: 40px 20px;
+    padding: 50px 20px;
   }
 
-  .units-showcase h2,
-  .why-section h2,
-  .features-section h2,
   .facility-gallery h2,
   .promise-title h2 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
+    font-size: 1.9rem;
+    margin-bottom: 35px;
+    line-height: 1.3;
   }
 
-  .unit-card {
-    border-radius: 15px;
-  }
-
-  .unit-image-wrapper {
-    height: 200px;
-  }
-
-  .unit-info {
-    padding: 20px;
-  }
-
-  .unit-info h3 {
-    font-size: 1.3rem;
-  }
-
-  .unit-size {
-    font-size: 0.95rem;
-  }
-
-  .unit-desc {
-    font-size: 0.9rem;
-  }
-
-  .price {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-
-  .why-card {
-    padding: 20px;
-  }
-
-  .why-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-  }
-
-  .why-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-  }
-
-  .why-card p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  .feature-item {
-    padding: 15px;
-    font-size: 0.9rem;
+  .gallery-grid {
+    grid-template-columns: 1fr;
     gap: 12px;
-  }
-
-  .feature-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
   }
 
   .gallery-item {
     height: 200px;
-    border-radius: 15px;
+    border-radius: 12px;
   }
 
   .gallery-overlay {
@@ -953,15 +1534,28 @@
 
   .gallery-overlay h3 {
     font-size: 1.1rem;
+    margin-bottom: 3px;
   }
 
   .gallery-overlay p {
     font-size: 0.85rem;
   }
 
+  .promise-title {
+    margin-bottom: 50px;
+  }
+
+  .promise-subtitle {
+    font-size: 1rem;
+  }
+
   .promise-item {
-    padding: 25px 15px;
-    border-radius: 20px;
+    padding: 30px 20px;
+    border-radius: 18px;
+  }
+
+  .promise-icon-wrapper {
+    margin-bottom: 20px;
   }
 
   .icon-circle {
@@ -979,18 +1573,94 @@
   }
 
   .promise-item h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 10px;
   }
 
   .promise-item p {
     font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.5;
     margin-bottom: 15px;
+  }
+
+  .promise-line {
+    width: 40px;
+    height: 2px;
+    margin: 15px auto 0;
+  }
+
+  .promise-item:hover .promise-line {
+    width: 60px;
+  }
+
+  .promise-container::before,
+  .promise-container::after {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .facility-gallery,
+  .promise-container {
+    padding: 40px 15px;
+  }
+
+  .facility-gallery h2,
+  .promise-title h2 {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+  }
+
+  .gallery-item {
+    height: 180px;
+  }
+
+  .gallery-overlay {
+    padding: 12px;
+  }
+
+  .gallery-overlay h3 {
+    font-size: 1rem;
+  }
+
+  .gallery-overlay p {
+    font-size: 0.8rem;
+  }
+
+  .promise-title {
+    margin-bottom: 40px;
   }
 
   .promise-subtitle {
     font-size: 0.95rem;
+  }
+
+  .promise-item {
+    padding: 25px 15px;
+  }
+
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .promise-item:hover .icon-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .promise-icon {
+    font-size: 2.2rem;
+  }
+
+  .promise-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .promise-item p {
+    font-size: 0.85rem;
   }
 
   .promise-container::before,
@@ -1000,41 +1670,8 @@
   }
 }
 
-/* Extra small phones */
-@media (max-width: 360px) {
-  .hero-overlay h1 {
-    font-size: 20px;
-  }
-
-  .hero-overlay h2 {
-    font-size: 14px;
-  }
-
-  .banner-card h1 {
-    font-size: 1.4rem;
-  }
-
-  .units-showcase h2,
-  .why-section h2,
-  .features-section h2,
-  .facility-gallery h2,
-  .promise-title h2 {
-    font-size: 1.6rem;
-  }
-
-  .unit-info h3 {
-    font-size: 1.2rem;
-  }
-
-  .why-card h3 {
-    font-size: 1.2rem;
-  }
-
-  .promise-item h3 {
-    font-size: 1.1rem;
-  }
-}
-
+/* ================================== */
+/* FINAL RESPONSIVE UTILITIES */
 /* ================================== */
 
 /* Smooth transitions for all interactive elements */
@@ -1078,8 +1715,6 @@ a {
   }
 }
 
-/* ================================== */
-
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -1106,4 +1741,82 @@ img {
 ::-moz-selection {
   background-color: #667eea;
   color: white;
+}
+
+/* ================================== */
+/* PERFORMANCE OPTIMIZATIONS FOR MOBILE */
+/* ================================== */
+
+@media (max-width: 768px) {
+  /* Reduce complex animations on mobile */
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+  
+  .promise-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .promise-item:hover .promise-icon {
+    transform: scale(1.1);
+  }
+  
+  /* Simplify backdrop filters for better performance */
+  .promise-item {
+    backdrop-filter: blur(10px);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Minimal animations on small screens */
+  .gallery-item:hover img {
+    transform: scale(1.02);
+  }
+  
+  .promise-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .promise-item:hover .icon-circle {
+    transform: scale(1.05);
+  }
+  
+  .promise-item:hover .promise-icon {
+    transform: scale(1.05);
+  }
+  
+  /* Reduce backdrop blur for performance */
+  .promise-item {
+    backdrop-filter: blur(5px);
+  }
+}
+
+/* ================================== */
+/* ACCESSIBILITY IMPROVEMENTS */
+/* ================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states for keyboard navigation */
+.rent-btn:focus,
+.cta-button:focus,
+.slider-btn:focus,
+.dot:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .hero-overlay,
+  .promise-item,
+  .why-card {
+    border: 2px solid currentColor;
+  }
 }

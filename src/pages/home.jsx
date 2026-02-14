@@ -1,31 +1,89 @@
+import React, { useState, useEffect } from "react";
+import image11 from '../Assest/hm1.png';
+import image12 from '../Assest/hm2.png';
+import image13 from '../Assest/hm3.png';
+import image14 from '../Assest/hm4.png';
+import image15 from '../Assest/hm5.jpeg';
+import image16 from '../Assest/hm6.png';
+
 import "./home.css";
 import { 
   FaCheck, 
   FaLock, 
   FaSmile, 
   FaThumbsUp,
-  FaArrowRight
+  FaArrowRight,
+  FaChevronLeft,
+  FaChevronRight
 } from 'react-icons/fa';
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const heroImages = [
+    image11,
+    image12,
+    image13
+
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [heroImages.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+
   return (
     <div className="home">
-
-      {/* HERO SECTION */}
-      <section
-        className="hero"
-        style={{
-          backgroundImage: `url("https://launchworkplaces.com/wp-content/uploads/2024/11/a-flexible-office-space-with-multiple-private-offices-which-helps-reduce-the-cost-to-rent-an-office-scaled.jpg")`
-        }}
-      >
+      {/* HERO SECTION WITH SLIDER */}
+      <section className="hero">
+        <div className="hero-slider">
+          {heroImages.map((image, index) => (
+            <div
+              key={index}
+              className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+              style={{ backgroundImage: `url(${image})` }}
+            />
+          ))}
+        </div>
+        
         <div className="hero-overlay">
-          <h1>AN FELIPE STORAGE</h1>
-          <h2>Storage in Felipe, CA 95023</h2>
+          <h1>Cinderella Self Online Storage</h1>
+          <h2>110 San Felipe rd, Hollister CA 95023</h2>
+          <p>MotelCinderella1@gmail.com | +1 (831) 637-5761</p>
           <p>
             We have a state-of-the-art facility with the best customer service around
             and 24/7 Video Surveillance! Give us a call or book online today!
           </p>
           <button className="rent-btn">Rent Online</button>
+        </div>
+
+        {/* Slider Controls */}
+        <button className="slider-btn prev" onClick={prevSlide}>
+          <FaChevronLeft />
+        </button>
+        <button className="slider-btn next" onClick={nextSlide}>
+          <FaChevronRight />
+        </button>
+
+        {/* Slider Dots */}
+        <div className="slider-dots">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              className={`dot ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
         </div>
       </section>
 
@@ -148,31 +206,31 @@ export default function Home() {
         <h2>Tour Our Facility</h2>
         <div className="gallery-grid">
           <div className="gallery-item large">
-            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&h=400&fit=crop" alt="Modern Storage Facility" />
+            <img src={image12} alt="Modern Storage Facility" />
             <div className="gallery-overlay">
-              <h3>Modern Facility</h3>
-              <p>State-of-the-art storage complex</p>
+              <h3>Storage Facility at Golden Hour</h3>
+              <p>Row of storage units with one open yellow-lit unit, bicycles parked outside, beautiful sunset sky with trees in background.</p>
             </div>
           </div>
           <div className="gallery-item">
-            <img src="https://media.istockphoto.com/id/1938106570/photo/digitally-generated-domestic-bedroom-interior.jpg?s=612x612&w=0&k=20&c=bC_YWy11iWh0ZtHJIT5ia4v9QELdl94SVqDge9XNZcc=" alt="Security Gate" />
+            <img src={ image13 } alt="Security Gate" />
             <div className="gallery-overlay">
               <h3>Secure Access</h3>
               <p>Gated entry</p>
             </div>
           </div>
           <div className="gallery-item">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&h=300&fit=crop" alt="Drive-up Units" />
+            <img src={image14} alt="Drive-up Units" />
             <div className="gallery-overlay">
-              <h3>Drive-up Access</h3>
-              <p>Easy loading</p>
+              <h3> Red Hot Rod - Storage Unit 13</h3>
+              <p>Vintage red hot rod with chrome details, license plate 5JSP182.</p>
             </div>
           </div>
           <div className="gallery-item">
-            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop" alt="Climate Controlled" />
+            <img src={image15} alt="Climate Controlled" />
             <div className="gallery-overlay">
-              <h3>Climate Control</h3>
-              <p>Temperature regulated</p>
+              <h3>Modern Residential Gate</h3>
+              <p>Black wrought iron double gate with decorative scrollwork for residential property access.</p>
             </div>
           </div>
         </div>
@@ -223,7 +281,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
