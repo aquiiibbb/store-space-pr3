@@ -103,7 +103,7 @@ export default function Header() {
 
               <div className="cinderella-cta-wrapper">
                 <button className="cinderella-reserve-button">
-                  <a style={{ textDecoration: "none" }} href="/form">
+                  <a style={{ textDecoration: "none" }} href="/rent">
                     RESERVE NOW →
                   </a>
                 </button>

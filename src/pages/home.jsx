@@ -94,7 +94,7 @@ export default function Home() {
             <h1>Premium Self Storage Solutions</h1>
             <p>Secure, convenient, and affordable storage units in Felipe</p>
             <button className="cta-button">
-              Find Your Perfect Unit <FaArrowRight />
+             <a style={{textDecoration:"none",color:"white"}} href="/rent">Find Your Perfect Unit</a> <FaArrowRight />
             </button>
           </div>
         </div>

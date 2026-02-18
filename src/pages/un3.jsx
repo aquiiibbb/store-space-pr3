@@ -1,50 +1,75 @@
 import './form.css'
-import { useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Form() {
-  useEffect(() => {
-    const dateInput = document.querySelector('.reservation-date-input');
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [currentMonth, setCurrentMonth] = useState(new Date());
 
-    if (dateInput) {
-      const handleClick = (e) => {
-        const ripple = document.createElement('span');
-        const rect = dateInput.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
+  const getDaysInMonth = (date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    return {
+      daysInMonth: lastDay.getDate(),
+      startingDayOfWeek: firstDay.getDay()
+    };
+  };
 
-        ripple.style.cssText = `
-          position: absolute;
-          width: ${size}px;
-          height: ${size}px;
-          left: ${x}px;
-          top: ${y}px;
-          background: rgba(40, 167, 69, 0.3);
-          border-radius: 50%;
-          transform: scale(0);
-          animation: ripple 0.6s ease-out;
-          pointer-events: none;
-          z-index: 1;
-        `;
+  const formatDate = (date) => {
+    if (!date) return '';
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+  };
 
-        dateInput.style.position = 'relative';
-        dateInput.appendChild(ripple);
+  const handleDateSelect = (day) => {
+    const newDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
+    setSelectedDate(newDate);
+    setShowCalendar(false);
+  };
 
-        setTimeout(() => ripple.remove(), 600);
-      };
+  const changeMonth = (direction) => {
+    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + direction, 1));
+  };
 
-      dateInput.addEventListener('click', handleClick);
+  const renderCalendar = () => {
+    const { daysInMonth, startingDayOfWeek } = getDaysInMonth(currentMonth);
+    const days = [];
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-      return () => dateInput.removeEventListener('click', handleClick);
+    for (let i = 0; i < startingDayOfWeek; i++) {
+      days.push(<div key={`empty-${i}`} className="calendar-day empty"></div>);
     }
-  }, []);
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
+      date.setHours(0, 0, 0, 0);
+      const isToday = date.getTime() === today.getTime();
+      const isSelected = selectedDate && date.getTime() === selectedDate.getTime();
+      const isPast = date < today;
+
+      days.push(
+        <div
+          key={day}
+          className={`calendar-day ${isToday ? 'today' : ''} ${isSelected ? 'selected' : ''} ${isPast ? 'past' : ''}`}
+          onClick={() => !isPast && handleDateSelect(day)}
+        >
+          {day}
+        </div>
+      );
+    }
+
+    return days;
+  };
+
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   return (
     <>
-      <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-      />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
       <div className="reservation-page">
         <div className="container">
@@ -61,12 +86,7 @@ export default function Form() {
                   <div className="row g-3">
                     <div className="col-md-6">
                       <div className="form-field">
-                        <input
-                          type="email"
-                          className="form-field__input"
-                          placeholder=" "
-                          required
-                        />
+                        <input type="email" className="form-field__input" placeholder=" " required />
                         <label className="form-field__label">
                           Email <span className="form-field__required">*</span>
                         </label>
@@ -75,12 +95,7 @@ export default function Form() {
                     </div>
                     <div className="col-md-6">
                       <div className="form-field">
-                        <input
-                          type="tel"
-                          className="form-field__input"
-                          placeholder=" "
-                          required
-                        />
+                        <input type="tel" className="form-field__input" placeholder=" " required />
                         <label className="form-field__label">
                           Mobile <span className="form-field__required">*</span>
                         </label>
@@ -93,12 +108,7 @@ export default function Form() {
                   <div className="row g-3">
                     <div className="col-md-6">
                       <div className="form-field">
-                        <input
-                          type="text"
-                          className="form-field__input"
-                          placeholder=" "
-                          required
-                        />
+                        <input type="text" className="form-field__input" placeholder=" " required />
                         <label className="form-field__label">
                           First name <span className="form-field__required">*</span>
                         </label>
@@ -107,12 +117,7 @@ export default function Form() {
                     </div>
                     <div className="col-md-6">
                       <div className="form-field">
-                        <input
-                          type="text"
-                          className="form-field__input"
-                          placeholder=" "
-                          required
-                        />
+                        <input type="text" className="form-field__input" placeholder=" " required />
                         <label className="form-field__label">
                           Last name <span className="form-field__required">*</span>
                         </label>
@@ -121,31 +126,81 @@ export default function Form() {
                     </div>
                   </div>
 
-                  {/* Date and Button Row */}
+                  {/* Date and Button Row - UPDATED CALENDAR */}
                   <div className="row g-3 align-items-end">
                     <div className="col-md-6">
                       <div className="form-field">
-                        <div className="reservation-date-wrapper">
-                          <input
-                            type="date"
-                            className="form-field__input reservation-date-input"
-                            placeholder=" "
-                            required
-                          />
-                          <label className="form-field__label">
-                          
-                          </label>
-                          <i className="fas fa-calendar-alt reservation-date__icon"></i>
+                        <div className="custom-calendar-wrapper">
+                          <div
+                            className="custom-calendar-input"
+                            onClick={() => setShowCalendar(!showCalendar)}
+                          >
+                            <i className="fas fa-calendar-alt calendar-icon"></i>
+                            <span className={selectedDate ? 'selected' : 'placeholder'}>
+                              {selectedDate ? formatDate(selectedDate) : 'Select Move-in Date'}
+                            </span>
+                            <i className={`fas fa-chevron-down dropdown-icon ${showCalendar ? 'rotate' : ''}`}></i>
+                          </div>
+
+                          {showCalendar && (
+                            <div className="custom-calendar-dropdown">
+                              <div className="calendar-header">
+                                <button
+                                  type="button"
+                                  className="calendar-nav-btn"
+                                  onClick={() => changeMonth(-1)}
+                                >
+                                  <i className="fas fa-chevron-left"></i>
+                                </button>
+                                <div className="calendar-month-year">
+                                  {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
+                                </div>
+                                <button
+                                  type="button"
+                                  className="calendar-nav-btn"
+                                  onClick={() => changeMonth(1)}
+                                >
+                                  <i className="fas fa-chevron-right"></i>
+                                </button>
+                              </div>
+
+                              <div className="calendar-weekdays">
+                                <div>Su</div>
+                                <div>Mo</div>
+                                <div>Tu</div>
+                                <div>We</div>
+                                <div>Th</div>
+                                <div>Fr</div>
+                                <div>Sa</div>
+                              </div>
+
+                              <div className="calendar-days">
+                                {renderCalendar()}
+                              </div>
+
+                              <div className="calendar-footer">
+                                <button
+                                  type="button"
+                                  className="calendar-today-btn"
+                                  onClick={() => {
+                                    const today = new Date();
+                                    setCurrentMonth(today);
+                                    setSelectedDate(today);
+                                    setShowCalendar(false);
+                                  }}
+                                >
+                                  Today
+                                </button>
+                              </div>
+                            </div>
+                          )}
                         </div>
                         <span className="form-field__error">Move-in date is required</span>
                       </div>
                     </div>
 
                     <div className="col-md-6">
-                      <button
-                        type="submit"
-                        className="btn-reserve-space"
-                      >
+                      <button type="submit" className="btn-reserve-space">
                         Reserve This Space
                       </button>
                     </div>
@@ -175,9 +230,9 @@ export default function Form() {
                   <div className="space-info__header">
                     <div className="space-info__details">
                       <span className="space-info__number">#3008</span>
-                      <span className="space-info__size">10' x 15'</span>
+                      <span className="space-info__size">12' x 30'</span>
                     </div>
-                    <a href="#" className="space-info__change-link">Change Space</a>
+                    <a href="/rent" className="space-info__change-link">Change Space</a>
                   </div>
 
                   {/* Online Price */}
@@ -223,13 +278,7 @@ export default function Form() {
                     </div>
                   </div>
 
-                  {/* Payment Methods */}
-                  <div className="space-payment">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" className="space-payment__card" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="Mastercard" className="space-payment__card" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/200px-American_Express_logo_%282018%29.svg.png" alt="American Express" className="space-payment__card" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Paypal_2014_logo.png/200px-Paypal_2014_logo.png" alt="PayPal" className="space-payment__card" />
-                  </div>
+                 
                 </div>
               </div>
             </div>
