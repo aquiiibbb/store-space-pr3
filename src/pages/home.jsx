@@ -21,7 +21,7 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const heroImages = [
-    image11,
+    image15,
     image12,
     image13
 
@@ -64,7 +64,7 @@ export default function Home() {
             We have a state-of-the-art facility with the best customer service around
             and 24/7 Video Surveillance! Give us a call or book online today!
           </p>
-          <button className="rent-btn">Rent Online</button>
+          <button className="rent-btn"> <a style={{textDecoration:"none",color:"white"}} href="/rent">Rent Online</a></button>
         </div>
 
         {/* Slider Controls */}
@@ -104,19 +104,7 @@ export default function Home() {
       <section className="units-showcase">
         <h2>Choose Your Perfect Storage Size</h2>
         <div className="units-grid">
-          <div className="unit-card">
-            <div className="unit-image-wrapper">
-              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop" alt="Small Storage Unit" />
-              <div className="unit-badge">Small</div>
-            </div>
-            <div className="unit-info">
-              <h3>Small Units</h3>
-              <p className="unit-size">5' x 5' - 5' x 10'</p>
-              <p className="unit-desc">Perfect for seasonal items, documents, and small furniture</p>
-              <span className="price">Starting at $49/month</span>
-            </div>
-          </div>
-          
+                    
           <div className="unit-card featured">
             <div className="unit-image-wrapper">
               <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=250&fit=crop" alt="Medium Storage Unit" />
@@ -124,9 +112,9 @@ export default function Home() {
             </div>
             <div className="unit-info">
               <h3>Medium Units</h3>
-              <p className="unit-size">10' x 10' - 10' x 15'</p>
+              <p className="unit-size">10' x 10'</p>
               <p className="unit-desc">Ideal for apartment contents, appliances, and business inventory</p>
-              <span className="price">Starting at $89/month</span>
+              <span className="price"><a style={{textDecoration:"none"}} href="/rent">Book Now</a></span>
             </div>
           </div>
           
@@ -137,9 +125,9 @@ export default function Home() {
             </div>
             <div className="unit-info">
               <h3>Large Units</h3>
-              <p className="unit-size">10' x 20' - 10' x 30'</p>
+              <p className="unit-size">10' x 30'</p>
               <p className="unit-desc">Great for entire home contents, vehicles, and commercial use</p>
-              <span className="price">Starting at $149/month</span>
+              <span className="price"><a style={{textDecoration:"none"}} href="/rent">Book Now</a></span>
             </div>
           </div>
         </div>

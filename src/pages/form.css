@@ -1,303 +1,545 @@
-* {
-  box-sizing: border-box;
-}
+/* Font Awesome for icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
-body {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+.reservation-wrapper {
+  background-color: #f8f9fa;
   min-height: 100vh;
-  padding: 20px 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1.5rem 0;
 }
 
-.storage-reservation-container {
-  max-width: 700px; /* Reduced from 900px */
-  margin: 0 auto;
-  padding: 30px; /* Reduced from 40px */
+/* Form Card - Reduced padding */
+.reservation-form-card {
   background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px; /* Reduced from 16px */
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06),
-    0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  position: relative;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e9ecef;
 }
 
-.storage-reservation-container:hover {
-  box-shadow: 
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05),
-    0 25px 50px -12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
+.form-header {
+  margin-bottom: 1.5rem;
 }
 
-.storage-reservation-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
-  border-radius: 12px 12px 0 0; /* Updated to match container */
-}
-
-.storage-reservation-container h2 {
-  font-size: 24px; /* Reduced from 28px */
-  margin-bottom: 15px;
-  color: #2d3748;
+.form-title {
+  font-size: 1.75rem;
   font-weight: 700;
-  text-align: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #212529;
+  margin-bottom: 0.5rem;
 }
 
-.storage-required-fields-note {
-  font-size: 14px;
-  color: #718096;
-  margin-bottom: 25px; /* Reduced from 30px */
+.form-subtitle {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.form-subtitle strong {
+  color: #212529;
+}
+
+/* Business Checkbox - Reduced padding */
+.business-check-wrapper {
+  margin-bottom: 1.25rem;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.form-check-input:checked {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.form-check-label {
+  color: #495057;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Form Groups - Reduced spacing */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.required {
+  color: #dc3545;
+}
+
+.reservation-input {
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0.6rem 0.875rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  height: 42px;
+}
+
+.reservation-input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.15rem rgba(40, 167, 69, 0.2);
+  outline: none;
+}
+
+/* Date Input */
+.date-input-wrapper {
+  position: relative;
+}
+
+.date-input {
+  padding-right: 2.5rem;
+}
+
+.date-icon {
+  position: absolute;
+  right: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+  pointer-events: none;
+  font-size: 0.9rem;
+}
+
+.date-note {
+  font-size: 0.8rem;
+  color: #6c757d;
   font-style: italic;
-  text-align: center;
-}
-
-.storage-input-group {
+  margin-top: 0.4rem;
   margin-bottom: 0;
 }
 
-.storage-input-group label {
-  font-size: 14px;
-  color: #4a5568;
-  font-weight: 600;
-  margin-bottom: 6px; /* Reduced from 8px */
-  display: block;
+/* Reserve Button - Reduced size */
+.reserve-button-wrapper {
+  margin: 1.5rem 0;
 }
 
-.storage-input,
-.storage-select,
-.storage-textarea {
-  padding: 10px 12px !important; /* Reduced from 14px 16px */
-  border: 1px solid #000000 !important; /* Changed to 1px solid black */
-  border-radius: 8px !important; /* Reduced from 12px */
-  font-size: 14px !important; /* Reduced from 15px */
-  background: #ffffff !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 
-    0 1px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
-  width: 100%;
-}
-
-.storage-input:focus,
-.storage-select:focus,
-.storage-textarea:focus {
-  border-color: #667eea !important;
-  box-shadow: 
-    0 0 0 3px rgba(102, 126, 234, 0.1),
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-  outline: none !important;
-  transform: translateY(-1px);
-}
-
-.storage-input:hover,
-.storage-select:hover,
-.storage-textarea:hover {
-  border-color: #667eea !important; /* Changed from #cbd5e0 */
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-}
-
-.storage-select {
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23667eea' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 8 4 4 4-4'/%3e%3c/svg%3e") !important;
-  background-position: right 10px center !important; /* Reduced from 12px */
-  background-repeat: no-repeat !important;
-  background-size: 14px !important; /* Reduced from 16px */
-  padding-right: 35px !important; /* Reduced from 40px */
-}
-
-.storage-textarea {
-  resize: vertical;
-  min-height: 100px; /* Reduced from 120px */
-  font-family: inherit;
-}
-
-.storage-appointment-link {
-  color: #667eea;
-  text-decoration: none;
-  font-size: 14px; /* Reduced from 15px */
-  font-weight: 500;
-  padding: 10px 20px; /* Reduced from 12px 24px */
-  border: 2px solid #667eea;
-  border-radius: 20px; /* Reduced from 25px */
-  transition: all 0.3s ease;
-  display: inline-block;
-  box-shadow: 
-    0 2px 4px 0 rgba(102, 126, 234, 0.2);
-}
-
-.storage-appointment-link:hover {
-  background: #667eea;
+.reserve-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  border: none;
   color: white;
-  text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: 
-    0 4px 12px 0 rgba(102, 126, 234, 0.4);
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 12px rgba(40, 167, 69, 0.25);
+  height: 48px;
 }
 
-.storage-submit-button,
-.storage-reset-button {
-  padding: 12px 28px !important; /* Reduced from 14px 32px */
-  border: none !important;
-  border-radius: 8px !important; /* Reduced from 12px */
-  cursor: pointer;
-  font-size: 14px !important; /* Reduced from 15px */
-  font-weight: 600 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease !important;
+.reserve-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(40, 167, 69, 0.35);
+  background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+}
+
+/* Terms - Reduced spacing */
+.terms-wrapper {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.terms-text {
+  font-size: 0.8rem;
+  color: #6c757d;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.terms-link {
+  font-size: 0.8rem;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.terms-link:hover {
+  color: #0056b3;
+}
+
+/* Space Details Card - Reduced size */
+.space-details-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem; /* Reduced from 1.25rem */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e9ecef;
+  height: fit-content;
+  position: sticky;
+  top: 1.5rem;
+}
+
+/* Holding Header - Reduced padding */
+.holding-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem; /* Reduced padding */
+  background-color: #f8f9fa;
+  border-radius: 5px; /* Reduced from 6px */
+  margin-bottom: 1rem; /* Reduced from 1.25rem */
+  border: 1px solid #dee2e6;
+}
+
+.holding-text {
+  color: #6c757d;
+  font-size: 0.8rem; /* Reduced from 0.85rem */
+}
+
+.holding-time {
+  color: #dc3545;
+  font-weight: 700;
+  font-size: 0.9rem; /* Reduced from 0.95rem */
+}
+
+/* Storage Location - SIGNIFICANTLY REDUCED */
+.storage-location {
+  margin-bottom: 1rem; /* Reduced from 1.25rem */
+  padding-bottom: 1rem; /* Reduced from 1.25rem */
+  border-bottom: 1px solid #dee2e6;
+}
+
+.location-name {
+  font-size: 1rem; /* Reduced from 1.1rem */
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 0.3rem; /* Reduced from 0.4rem */
+}
+
+.location-address {
+  color: #6c757d;
+  margin-bottom: 0.4rem; /* Reduced from 0.6rem */
+  line-height: 1.2; /* Reduced from 1.3 */
+  font-size: 0.8rem; /* Reduced from 0.9rem */
+}
+
+.phone-number {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem; /* Reduced from 0.4rem */
+  color: #495057;
+  font-weight: 500;
+  font-size: 0.8rem; /* Reduced from 0.9rem */
+}
+
+.phone-number i {
+  color: #28a745;
+  font-size: 0.75rem; /* Reduced from 0.85rem */
+}
+
+/* Space Info - Reduced spacing */
+.space-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem; /* Reduced from 0.875rem */
+}
+
+.space-details {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem; /* Reduced from 0.4rem */
+}
+
+.space-number {
+  font-size: 1rem; /* Reduced from 1.1rem */
+  font-weight: 700;
+  color: #212529;
+}
+
+.space-size {
+  font-size: 1rem; /* Reduced from 1.1rem */
+  color: #6c757d;
+}
+
+.change-space-link {
+  color: #007bff;
+  text-decoration: underline;
+  font-size: 0.8rem; /* Reduced from 0.85rem */
+}
+
+.change-space-link:hover {
+  color: #0056b3;
+}
+
+/* Online Price - Reduced padding */
+.online-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem; /* Reduced from 1.25rem */
+  padding: 0.75rem; /* Reduced from 0.875rem */
+  background-color: #f8f9fa;
+  border-radius: 5px; /* Reduced from 6px */
+  border: 1px solid #dee2e6;
+}
+
+.online-label {
+  background: #28a745;
+  color: white;
+  padding: 0.15rem 0.35rem; /* Reduced padding */
+  border-radius: 3px;
+  font-size: 0.65rem; /* Reduced from 0.7rem */
+  font-weight: 600;
+}
+
+.price-display {
+  text-align: right;
+}
+
+.price {
+  font-size: 1.35rem; /* Reduced from 1.5rem */
+  font-weight: 700;
+  color: #212529;
+}
+
+.period {
+  display: block;
+  font-size: 0.75rem; /* Reduced from 0.8rem */
+  color: #6c757d;
+}
+
+/* Amenities - Reduced spacing */
+.amenities {
+  margin-bottom: 1rem; /* Reduced from 1.25rem */
+  padding-bottom: 1rem; /* Reduced from 1.25rem */
+  border-bottom: 1px solid #dee2e6;
+}
+
+.amenities-title {
+  font-size: 0.9rem; /* Reduced from 0.95rem */
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0.5rem; /* Reduced from 0.6rem */
+}
+
+.amenities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.amenities-list li {
+  padding: 0.15rem 0; /* Reduced from 0.2rem */
+  color: #495057;
+  font-size: 0.8rem; /* Reduced from 0.85rem */
   position: relative;
-  overflow: hidden;
+  padding-left: 1.1rem; /* Reduced from 1.25rem */
 }
 
-.storage-submit-button {
-  background: linear-gradient(135deg, #667eea, #764ba2) !important;
-  color: white !important;
-  box-shadow: 
-    0 4px 15px 0 rgba(102, 126, 234, 0.4) !important;
+.amenities-list li::before {
+  content: '•';
+  color: #28a745;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
 }
 
-.storage-submit-button:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 
-    0 8px 25px 0 rgba(102, 126, 234, 0.5) !important;
+/* Pricing Breakdown - Reduced spacing */
+.pricing-breakdown {
+  margin-bottom: 1rem; /* Reduced from 1.25rem */
 }
 
-.storage-submit-button:active {
-  transform: translateY(-1px) !important;
+.monthly-rent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.15rem; /* Reduced from 0.2rem */
 }
 
-.storage-reset-button {
-  background: linear-gradient(135deg, #718096, #4a5568) !important;
-  color: white !important;
-  box-shadow: 
-    0 4px 15px 0 rgba(113, 128, 150, 0.4) !important;
+.rent-label {
+  font-weight: 600;
+  color: #212529;
+  font-size: 0.85rem; /* Reduced from 0.9rem */
 }
 
-.storage-reset-button:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 
-    0 8px 25px 0 rgba(113, 128, 150, 0.5) !important;
+.rent-amount {
+  font-weight: 600;
+  color: #212529;
+  font-size: 0.85rem; /* Reduced from 0.9rem */
 }
 
-.storage-reset-button:active {
-  transform: translateY(-1px) !important;
+.prorated-label {
+  font-size: 0.75rem; /* Reduced from 0.8rem */
+  color: #6c757d;
+  margin-bottom: 0.75rem; /* Reduced from 0.875rem */
 }
 
-/* Premium animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+.fee-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem; /* Reduced from 0.4rem */
+  color: #495057;
+  font-size: 0.8rem; /* Reduced from 0.85rem */
+}
+
+.total-cost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem; /* Reduced from 0.875rem */
+  padding-top: 0.75rem; /* Reduced from 0.875rem */
+  border-top: 2px solid #dee2e6;
+}
+
+.total-label {
+  font-weight: 700;
+  color: #212529;
+  font-size: 0.85rem; /* Reduced from 0.9rem */
+}
+
+.total-amount {
+  font-size: 1rem; /* Reduced from 1.1rem */
+  font-weight: 700;
+  color: #28a745;
+}
+
+/* Payment Methods - Smaller cards */
+.payment-methods {
+  display: flex;
+  gap: 0.3rem; /* Reduced from 0.4rem */
+  justify-content: flex-start;
+  margin-top: 0.75rem; /* Reduced from 0.875rem */
+  flex-wrap: wrap;
+}
+
+.payment-card {
+  height: 18px; /* Reduced from 20px */
+  width: auto;
+  max-width: 32px; /* Reduced from 35px */
+  border-radius: 3px;
+  border: 1px solid #dee2e6;
+  object-fit: contain;
+  background: white;
+  padding: 1.5px; /* Reduced from 2px */
+}
+
+/* Mobile Responsive - Updated for smaller sizes */
+@media (max-width: 991.98px) {
+  .reservation-wrapper {
+    padding: 0.875rem 0;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .reservation-form-card,
+  .space-details-card {
+    margin-bottom: 1.25rem;
+  }
+  
+  .space-details-card {
+    position: static;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
   }
 }
 
-.storage-reservation-container {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.storage-input-group {
-  animation: fadeInUp 0.6s ease-out;
-  animation-fill-mode: both;
-}
-
-.storage-input-group:nth-child(1) { animation-delay: 0.1s; }
-.storage-input-group:nth-child(2) { animation-delay: 0.2s; }
-.storage-input-group:nth-child(3) { animation-delay: 0.3s; }
-.storage-input-group:nth-child(4) { animation-delay: 0.4s; }
-
-/* Responsive Design */
 @media (max-width: 768px) {
-  body {
-    padding: 15px 0;
+  .reservation-form-card,
+  .space-details-card {
+    padding: 1.25rem;
+    border-radius: 6px;
   }
   
-  .storage-reservation-container {
-    margin: 15px;
-    padding: 25px 20px; /* Reduced padding */
-    border-radius: 10px; /* Reduced from 12px */
+  .space-details-card {
+    padding: 1rem; /* Keep reduced padding on tablet */
   }
   
-  .storage-reservation-container h2 {
-    font-size: 22px; /* Reduced from 24px */
+  .form-title {
+    font-size: 1.35rem;
   }
   
-  .storage-submit-button,
-  .storage-reset-button {
-    width: 100%;
-    margin-bottom: 12px; /* Reduced from 15px */
-    padding: 14px 28px !important; /* Reduced from 16px 32px */
+  .space-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem; /* Reduced from 0.4rem */
   }
   
-  .storage-appointment-link {
-    display: block;
-    text-align: center;
-    margin: 15px 0; /* Reduced from 20px */
+  .online-price {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem; /* Reduced from 0.6rem */
+  }
+  
+  .price-display {
+    text-align: left;
   }
 }
 
 @media (max-width: 576px) {
-  .storage-reservation-container {
-    margin: 10px;
-    padding: 20px 15px; /* Reduced padding */
+  .reservation-wrapper {
+    padding: 0.4rem 0;
   }
   
-  .storage-reservation-container h2 {
-    font-size: 20px; /* Reduced from 22px */
+  .reservation-form-card,
+  .space-details-card {
+    padding: 0.875rem;
+    margin: 0 0.4rem 1rem 0.4rem;
   }
   
-  .storage-input,
-  .storage-select,
-  .storage-textarea {
-    padding: 10px 12px !important;
-    font-size: 14px !important;
+  .space-details-card {
+    padding: 0.75rem; /* Even more reduced on mobile */
   }
-}
-
-/* Focus states for better accessibility */
-.storage-submit-button:focus,
-.storage-reset-button:focus {
-  outline: 2px solid #667eea;
-  outline-offset: 2px;
-}
-
-/* Loading state (optional) */
-.storage-submit-button.loading {
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.storage-submit-button.loading::after {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  margin: auto;
-  border: 2px solid transparent;
-  border-top-color: #ffffff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  
+  .form-title {
+    font-size: 1.2rem;
+  }
+  
+  .reserve-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    height: 44px;
+  }
+  
+  .holding-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.15rem; /* Reduced from 0.2rem */
+    padding: 0.4rem; /* Reduced from 0.5rem */
+  }
+  
+  .space-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem; /* Reduced from 0.2rem */
+  }
+  
+  .payment-methods {
+    gap: 0.25rem; /* Reduced from 0.3rem */
+  }
+  
+  .payment-card {
+    height: 16px; /* Even smaller on mobile */
+    max-width: 28px;
+  }
+  
+  /* Mobile specific reductions for storage location */
+  .location-name {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .location-address {
+    font-size: 0.75rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.1;
+  }
+  
+  .phone-number {
+    font-size: 0.75rem;
+    gap: 0.25rem;
+  }
+  
+  .phone-number i {
+    font-size: 0.7rem;
+  }
 }
