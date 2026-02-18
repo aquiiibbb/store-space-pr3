@@ -42,6 +42,12 @@
   padding: 0;
   margin: 0;
   flex-shrink: 0;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .cinderella-crown-logo:hover {
@@ -58,6 +64,56 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.3px;
   white-space: nowrap;
+}
+
+/* CUSTOM HAMBURGER BUTTON */
+.custom-navbar-toggler {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid #d4af37;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.custom-navbar-toggler:hover {
+  border-color: #f4d03f;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.custom-navbar-toggler:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+}
+
+.hamburger-line {
+  width: 18px;
+  height: 2px;
+  background-color: #d4af37;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+
+/* HAMBURGER ANIMATION */
+.custom-navbar-toggler.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.custom-navbar-toggler.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.custom-navbar-toggler.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Center nav on laptop/desktop */
@@ -232,33 +288,7 @@
   color: #1a1a1a !important;
 }
 
-/* Custom Navbar Toggler */
-.navbar-toggler {
-  border: 1px solid #d4af37 !important;
-  padding: 0.2rem 0.4rem;
-  width: 35px;
-  height: 35px;
-  background: transparent !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-.navbar-toggler:focus {
-  box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.25) !important;
-  outline: none !important;
-}
-
-.navbar-toggler:not(.collapsed) {
-  border-color: #f4d03f !important;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23d4af37' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-  width: 18px;
-  height: 18px;
-}
-
-/* MOBILE DROPDOWN - SAME BACKGROUND AS HEADER */
+/* MOBILE DROPDOWN */
 .navbar-collapse {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
   border-top: 1px solid #d4af37;
@@ -268,7 +298,7 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* ENSURE COLLAPSE WORKS PROPERLY */
+/* COLLAPSE FUNCTIONALITY */
 .collapse:not(.show) {
   display: none;
 }
@@ -283,8 +313,12 @@
   display: block;
 }
 
-/* MOBILE RESPONSIVE - BUTTON FIXED */
+/* MOBILE RESPONSIVE */
 @media (max-width: 991.98px) {
+  .custom-navbar-toggler {
+    display: flex;
+  }
+  
   .cinderella-header-wrapper {
     min-height: 60px;
     padding: 0 1rem;
@@ -294,8 +328,19 @@
     height: 60px;
   }
   
+  .container-fluid {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
   .cinderella-brand-container {
-    margin-right: 0;
+    flex: 1;
+    min-width: 0;
+    margin-right: 0.5rem;
     height: 60px;
     gap: 0.8rem;
   }
@@ -304,12 +349,23 @@
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .cinderella-crown-logo {
     height: 50px;
     filter: brightness(1.3) contrast(1.3) saturate(1.2);
     drop-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+  }
+  
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
   }
   
   .navbar-nav {
@@ -329,7 +385,6 @@
     width: 100%;
   }
   
-  /* MOBILE BUTTON WRAPPER - FIXED */
   .cinderella-cta-wrapper {
     justify-content: center !important;
     margin: 1rem 0 0.5rem 0 !important;
@@ -344,17 +399,6 @@
     font-size: 0.8rem;
     width: auto;
   }
-  
-  .navbar-toggler {
-    width: 32px;
-    height: 32px;
-    padding: 0.15rem 0.3rem;
-  }
-  
-  .navbar-toggler-icon {
-    width: 16px;
-    height: 16px;
-  }
 }
 
 /* TABLET LANDSCAPE */
@@ -368,9 +412,14 @@
     height: 55px;
   }
   
+  .container-fluid {
+    padding: 0 0.8rem;
+  }
+  
   .cinderella-brand-container {
     gap: 0.7rem;
     height: 55px;
+    margin-right: 0.3rem;
   }
   
   .cinderella-brand-container h2 {
@@ -384,15 +433,16 @@
     drop-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
   }
   
-  .navbar-toggler {
-    width: 30px;
-    height: 30px;
-    padding: 0.1rem 0.25rem;
+  .custom-navbar-toggler {
+    width: 28px;
+    height: 28px;
+    padding: 3px;
   }
   
-  .navbar-toggler-icon {
-    width: 15px;
-    height: 15px;
+  .hamburger-line {
+    width: 16px;
+    height: 2px;
+    margin: 1.5px 0;
   }
 }
 
@@ -405,6 +455,10 @@
   
   .cinderella-header-wrapper .navbar {
     height: 52px;
+  }
+  
+  .container-fluid {
+    padding: 0 0.8rem;
   }
   
   .cinderella-brand-container {
@@ -436,15 +490,16 @@
     font-size: 0.75rem;
   }
   
-  .navbar-toggler {
-    width: 28px;
-    height: 28px;
-    padding: 0.1rem 0.2rem;
+  .custom-navbar-toggler {
+    width: 26px;
+    height: 26px;
+    padding: 2px;
   }
   
-  .navbar-toggler-icon {
-    width: 14px;
-    height: 14px;
+  .hamburger-line {
+    width: 15px;
+    height: 1.5px;
+    margin: 1.5px 0;
   }
 }
 
@@ -457,6 +512,10 @@
   
   .cinderella-header-wrapper .navbar {
     height: 48px;
+  }
+  
+  .container-fluid {
+    padding: 0 0.6rem;
   }
   
   .cinderella-brand-container {
@@ -481,36 +540,20 @@
     font-size: 0.7rem;
   }
   
-  .navbar-toggler {
-    width: 26px;
-    height: 26px;
+  .custom-navbar-toggler {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
   }
   
-  .navbar-toggler-icon {
-    width: 13px;
-    height: 13px;
+  .hamburger-line {
+    width: 14px;
+    height: 1.5px;
+    margin: 1px 0;
   }
 }
 
 /* ENSURE NO WHITE BACKGROUND */
 body {
   background: #1a1a1a !important;
-}
-
-.navbar-dark .navbar-toggler {
-  border-color: #d4af37 !important;
-}
-
-.navbar-dark .navbar-toggler:focus {
-  box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.25) !important;
-}
-
-/* LOGO QUALITY ENHANCEMENT */
-.cinderella-crown-logo {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
 }

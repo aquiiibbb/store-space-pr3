@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./header.css";
 import image from '../Assest/store-logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Header() {
   // Function to scroll to top when nav link is clicked
@@ -12,7 +11,46 @@ export default function Header() {
       top: 0,
       behavior: 'smooth'
     });
+    
+    // Close mobile menu after clicking nav link
+    const navbarCollapse = document.querySelector('#navbarNav');
+    const toggleButton = document.querySelector('.custom-navbar-toggler');
+    
+    if (navbarCollapse && toggleButton) {
+      navbarCollapse.classList.remove('show');
+      toggleButton.setAttribute('aria-expanded', 'false');
+      toggleButton.classList.remove('active');
+    }
   };
+
+  // Custom navbar toggle functionality
+  useEffect(() => {
+    const toggleButton = document.querySelector('.custom-navbar-toggler');
+    const navbarCollapse = document.querySelector('#navbarNav');
+    
+    if (toggleButton && navbarCollapse) {
+      const handleToggle = () => {
+        const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+        
+        if (isExpanded) {
+          navbarCollapse.classList.remove('show');
+          toggleButton.setAttribute('aria-expanded', 'false');
+          toggleButton.classList.remove('active');
+        } else {
+          navbarCollapse.classList.add('show');
+          toggleButton.setAttribute('aria-expanded', 'true');
+          toggleButton.classList.add('active');
+        }
+      };
+      
+      toggleButton.addEventListener('click', handleToggle);
+      
+      // Cleanup
+      return () => {
+        toggleButton.removeEventListener('click', handleToggle);
+      };
+    }
+  }, []);
 
   return (
     <header className="cinderella-header-wrapper">
@@ -24,17 +62,17 @@ export default function Header() {
             <h2 className="mb-0">CINDERELLA SELF ONLINE STORAGE</h2>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Custom Mobile Toggle Button */}
           <button
-            className="navbar-toggler"
+            className="custom-navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
           </button>
 
           {/* Collapsible Content */}
