@@ -11,11 +11,11 @@ export default function Header() {
       top: 0,
       behavior: 'smooth'
     });
-    
+
     // Close mobile menu after clicking nav link
     const navbarCollapse = document.querySelector('#navbarNav');
     const toggleButton = document.querySelector('.custom-navbar-toggler');
-    
+
     if (navbarCollapse && toggleButton) {
       navbarCollapse.classList.remove('show');
       toggleButton.setAttribute('aria-expanded', 'false');
@@ -27,11 +27,11 @@ export default function Header() {
   useEffect(() => {
     const toggleButton = document.querySelector('.custom-navbar-toggler');
     const navbarCollapse = document.querySelector('#navbarNav');
-    
+
     if (toggleButton && navbarCollapse) {
       const handleToggle = () => {
         const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
-        
+
         if (isExpanded) {
           navbarCollapse.classList.remove('show');
           toggleButton.setAttribute('aria-expanded', 'false');
@@ -42,9 +42,9 @@ export default function Header() {
           toggleButton.classList.add('active');
         }
       };
-      
+
       toggleButton.addEventListener('click', handleToggle);
-      
+
       // Cleanup
       return () => {
         toggleButton.removeEventListener('click', handleToggle);
@@ -77,7 +77,7 @@ export default function Header() {
 
           {/* Collapsible Content */}
           <div className="collapse navbar-collapse" id="navbarNav">
-            <div className="navbar-nav">
+            <div className="navbar-nav ms-auto align-items-center">
               <NavLink
                 to="/"
                 end
@@ -100,14 +100,14 @@ export default function Header() {
               >
                 CONTACT US
               </NavLink>
-            </div>
 
-            <div className="cinderella-cta-wrapper">
-              <button className="cinderella-reserve-button">
-                <a style={{ textDecoration: "none" }} href="/form">
-                  RESERVE NOW →
-                </a>
-              </button>
+              <div className="cinderella-cta-wrapper">
+                <button className="cinderella-reserve-button">
+                  <a style={{ textDecoration: "none" }} href="/form">
+                    RESERVE NOW →
+                  </a>
+                </button>
+              </div>
             </div>
           </div>
         </div>

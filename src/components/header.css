@@ -4,7 +4,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #d4af37;
+  border-bottom: none;
   min-height: 70px;
   padding: 0;
   width: 100%;
@@ -38,7 +38,6 @@
   object-fit: contain;
   filter: brightness(1.2) contrast(1.2) saturate(1.1);
   transition: all 0.3s ease;
-  drop-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
   padding: 0;
   margin: 0;
   flex-shrink: 0;
@@ -52,8 +51,7 @@
 
 .cinderella-crown-logo:hover {
   filter: brightness(1.3) contrast(1.3) saturate(1.2);
-  transform: scale(1.08);
-  drop-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+  transform: scale(1.05) translateZ(0);
 }
 
 .cinderella-brand-container h2 {
@@ -116,49 +114,60 @@
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Center nav on laptop/desktop */
+/* Desktop Layout - Center nav items */
 @media (min-width: 992px) {
-  .navbar-nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  .container-fluid {
     display: flex;
-    gap: 3rem;
-    margin-left: 4rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 100%;
+    position: relative;
   }
-  
+
+  .navbar-collapse {
+    display: flex !important;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .navbar-nav {
+    display: flex;
+    gap: 2.5rem;
+    margin: 0;
+    align-items: center;
+  }
+
   .cinderella-cta-wrapper {
     margin-left: auto;
-    margin-right: 1.5rem;
   }
-  
+
   .cinderella-crown-logo {
     height: 90px;
   }
-  
+
   .cinderella-brand-container {
-    margin-right: 2rem;
     height: 90px;
   }
-  
+
   .cinderella-brand-container h2 {
     font-size: 1.3rem;
     font-weight: 700;
   }
-  
+
   .cinderella-header-wrapper {
     min-height: 90px;
   }
-  
+
   .cinderella-header-wrapper .navbar {
     height: 90px;
-  }
-  
-  .container-fluid {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    position: relative;
-    height: 100%;
   }
 }
 
@@ -167,32 +176,27 @@
   .cinderella-crown-logo {
     height: 95px;
   }
-  
+
   .cinderella-brand-container {
     height: 95px;
   }
-  
+
   .cinderella-brand-container h2 {
     font-size: 1.4rem;
   }
-  
+
   .cinderella-header-wrapper {
     min-height: 95px;
   }
-  
+
   .cinderella-header-wrapper .navbar {
     height: 95px;
   }
-  
+
   .navbar-nav {
-    gap: 3.5rem;
-    margin-left: 5rem;
+    gap: 3rem;
   }
-  
-  .cinderella-brand-container {
-    margin-right: 3rem;
-  }
-  
+
   .container-fluid {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
@@ -202,12 +206,7 @@
 /* For extra large screens (1400px+) */
 @media (min-width: 1400px) {
   .navbar-nav {
-    gap: 4rem;
-    margin-left: 6rem;
-  }
-  
-  .cinderella-brand-container {
-    margin-right: 4rem;
+    gap: 3.5rem;
   }
 }
 
@@ -318,16 +317,16 @@
   .custom-navbar-toggler {
     display: flex;
   }
-  
+
   .cinderella-header-wrapper {
     min-height: 60px;
     padding: 0 1rem;
   }
-  
+
   .cinderella-header-wrapper .navbar {
     height: 60px;
   }
-  
+
   .container-fluid {
     display: flex;
     flex-wrap: nowrap;
@@ -336,7 +335,7 @@
     width: 100%;
     padding: 0 1rem;
   }
-  
+
   .cinderella-brand-container {
     flex: 1;
     min-width: 0;
@@ -344,7 +343,7 @@
     height: 60px;
     gap: 0.8rem;
   }
-  
+
   .cinderella-brand-container h2 {
     font-size: 0.9rem;
     font-weight: 600;
@@ -353,13 +352,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  
+
   .cinderella-crown-logo {
     height: 50px;
     filter: brightness(1.3) contrast(1.3) saturate(1.2);
-    drop-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
   }
-  
+
   .navbar-collapse {
     position: absolute;
     top: 100%;
@@ -367,16 +365,14 @@
     right: 0;
     z-index: 1000;
   }
-  
+
   .navbar-nav {
     text-align: center;
     margin: 0.5rem 0;
     gap: 0.3rem;
-    position: static !important;
-    transform: none !important;
-    margin-left: 0 !important;
+    flex-direction: column;
   }
-  
+
   .cinderella-nav-link {
     font-size: 0.85rem;
     padding: 0.6rem 1rem !important;
@@ -384,15 +380,13 @@
     display: block;
     width: 100%;
   }
-  
+
   .cinderella-cta-wrapper {
     justify-content: center !important;
     margin: 1rem 0 0.5rem 0 !important;
     width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
   }
-  
+
   .cinderella-reserve-button {
     max-width: 180px;
     padding: 0.6rem 1.2rem;
@@ -407,38 +401,37 @@
     min-height: 55px;
     padding: 0 0.8rem;
   }
-  
+
   .cinderella-header-wrapper .navbar {
     height: 55px;
   }
-  
+
   .container-fluid {
     padding: 0 0.8rem;
   }
-  
+
   .cinderella-brand-container {
     gap: 0.7rem;
     height: 55px;
     margin-right: 0.3rem;
   }
-  
+
   .cinderella-brand-container h2 {
     font-size: 0.85rem;
     font-weight: 600;
   }
-  
+
   .cinderella-crown-logo {
     height: 45px;
     filter: brightness(1.3) contrast(1.3) saturate(1.2);
-    drop-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
   }
-  
+
   .custom-navbar-toggler {
     width: 28px;
     height: 28px;
     padding: 3px;
   }
-  
+
   .hamburger-line {
     width: 16px;
     height: 2px;
@@ -452,50 +445,49 @@
     min-height: 52px;
     padding: 0 0.8rem;
   }
-  
+
   .cinderella-header-wrapper .navbar {
     height: 52px;
   }
-  
+
   .container-fluid {
     padding: 0 0.8rem;
   }
-  
+
   .cinderella-brand-container {
     gap: 0.6rem;
     height: 52px;
   }
-  
+
   .cinderella-brand-container h2 {
     font-size: 0.8rem;
     letter-spacing: 0.2px;
     font-weight: 600;
   }
-  
+
   .cinderella-crown-logo {
     height: 42px;
     filter: brightness(1.4) contrast(1.4) saturate(1.3);
-    drop-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
   }
-  
+
   .cinderella-nav-link {
     font-size: 0.8rem;
     padding: 0.5rem 0.8rem !important;
     margin: 0.15rem 0;
   }
-  
+
   .cinderella-reserve-button {
     max-width: 150px;
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
   }
-  
+
   .custom-navbar-toggler {
     width: 26px;
     height: 26px;
     padding: 2px;
   }
-  
+
   .hamburger-line {
     width: 15px;
     height: 1.5px;
@@ -509,43 +501,42 @@
     min-height: 48px;
     padding: 0 0.6rem;
   }
-  
+
   .cinderella-header-wrapper .navbar {
     height: 48px;
   }
-  
+
   .container-fluid {
     padding: 0 0.6rem;
   }
-  
+
   .cinderella-brand-container {
     height: 48px;
     gap: 0.5rem;
   }
-  
+
   .cinderella-brand-container h2 {
     font-size: 0.75rem;
     font-weight: 600;
   }
-  
+
   .cinderella-crown-logo {
     height: 38px;
     filter: brightness(1.4) contrast(1.4) saturate(1.3);
-    drop-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
   }
-  
+
   .cinderella-reserve-button {
     max-width: 130px;
     padding: 0.4rem 0.8rem;
     font-size: 0.7rem;
   }
-  
+
   .custom-navbar-toggler {
     width: 24px;
     height: 24px;
     padding: 2px;
   }
-  
+
   .hamburger-line {
     width: 14px;
     height: 1.5px;
