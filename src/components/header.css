@@ -11,11 +11,14 @@
   border-bottom: 1px solid #d4af37;
   min-height: 70px;
   padding: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .cinderella-header-wrapper .navbar {
   padding: 0;
   height: 100%;
+  background: transparent !important;
 }
 
 .cinderella-brand-container {
@@ -26,6 +29,7 @@
   height: 100%;
   padding: 0;
   margin: 0;
+  flex-shrink: 0;
 }
 
 .cinderella-brand-container:hover {
@@ -33,7 +37,7 @@
 }
 
 .cinderella-crown-logo {
-  height: 70px; /* Full nav height */
+  height: 70px;
   width: auto;
   max-width: none;
   object-fit: contain;
@@ -42,6 +46,7 @@
   drop-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
   padding: 0;
   margin: 0;
+  flex-shrink: 0;
 }
 
 .cinderella-crown-logo:hover {
@@ -57,9 +62,10 @@
   margin: 0;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
-/* Center nav on laptop/desktop - FIXED SPACING */
+/* Center nav on laptop/desktop */
 @media (min-width: 992px) {
   .navbar-nav {
     position: absolute;
@@ -75,14 +81,13 @@
     margin-right: 1.5rem;
   }
   
-  /* Desktop sizes - full height logo */
   .cinderella-crown-logo {
-    height: 90px; /* Full nav height */
+    height: 90px;
   }
   
   .cinderella-brand-container {
     margin-right: 2rem;
-    height: 90px; /* Match nav height */
+    height: 90px;
   }
   
   .cinderella-brand-container h2 {
@@ -98,7 +103,6 @@
     height: 90px;
   }
   
-  /* Better container spacing */
   .container-fluid {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -110,11 +114,11 @@
 /* For larger desktops (1200px+) */
 @media (min-width: 1200px) {
   .cinderella-crown-logo {
-    height: 95px; /* Full nav height */
+    height: 95px;
   }
   
   .cinderella-brand-container {
-    height: 95px; /* Match nav height */
+    height: 95px;
   }
   
   .cinderella-brand-container h2 {
@@ -156,7 +160,7 @@
   }
 }
 
-/* Custom Nav Links - BETTER SPACING */
+/* Custom Nav Links */
 .cinderella-nav-link {
   color: #ffffff !important;
   font-weight: 500;
@@ -228,10 +232,13 @@
   padding: 0.2rem 0.4rem;
   width: 35px;
   height: 35px;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .navbar-toggler:focus {
-  box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.25) !important;
+  outline: none;
 }
 
 .navbar-toggler-icon {
@@ -240,41 +247,59 @@
   height: 18px;
 }
 
-/* Mobile Responsive */
+/* MOBILE COLLAPSE MENU */
+.navbar-collapse {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+  border-top: 1px solid #d4af37;
+  margin-top: 0.5rem;
+  padding: 1rem 0;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* MOBILE RESPONSIVE - BETTER LOGO STYLING */
 @media (max-width: 991.98px) {
   .cinderella-header-wrapper {
-    min-height: 65px;
+    min-height: 60px; /* Increased for better logo visibility */
+    padding: 0 1rem;
   }
   
   .cinderella-header-wrapper .navbar {
-    height: 65px;
+    height: 60px;
   }
   
   .cinderella-brand-container {
     margin-right: 0;
-    height: 65px; /* Match nav height */
+    height: 60px;
+    gap: 0.8rem; /* Better spacing */
   }
   
   .cinderella-brand-container h2 {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Slightly larger */
+    font-weight: 600;
+    letter-spacing: 0.3px;
   }
   
   .cinderella-crown-logo {
-    height: 65px; /* Full nav height */
+    height: 50px; /* Better proportions */
+    filter: brightness(1.3) contrast(1.3) saturate(1.2); /* Enhanced visibility */
+    drop-shadow: 0 0 10px rgba(212, 175, 55, 0.4); /* Better glow */
   }
   
   .navbar-nav {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     position: static !important;
     transform: none !important;
-    gap: 0.5rem;
+    gap: 0.3rem;
     margin-left: 0;
+    padding: 0 1rem;
   }
   
   .cinderella-cta-wrapper {
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
     width: 100%;
     position: static !important;
     margin-left: 0;
@@ -283,38 +308,15 @@
   
   .cinderella-reserve-button {
     width: auto;
-    max-width: 180px;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.8rem;
+    max-width: 160px;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
   }
   
   .cinderella-nav-link {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     padding: 0.4rem 0.8rem !important;
-    margin: 0.2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .cinderella-header-wrapper {
-    min-height: 60px;
-  }
-  
-  .cinderella-header-wrapper .navbar {
-    height: 60px;
-  }
-  
-  .cinderella-brand-container {
-    gap: 0.8rem;
-    height: 60px; /* Match nav height */
-  }
-  
-  .cinderella-brand-container h2 {
-    font-size: 0.85rem;
-  }
-  
-  .cinderella-crown-logo {
-    height: 60px; /* Full nav height */
+    margin: 0.1rem;
   }
   
   .navbar-toggler {
@@ -329,10 +331,11 @@
   }
 }
 
-@media (max-width: 576px) {
+/* TABLET LANDSCAPE */
+@media (max-width: 768px) {
   .cinderella-header-wrapper {
     min-height: 55px;
-    padding: 0 0.5rem;
+    padding: 0 0.8rem;
   }
   
   .cinderella-header-wrapper .navbar {
@@ -340,29 +343,19 @@
   }
   
   .cinderella-brand-container {
-    gap: 0.6rem;
-    height: 55px; /* Match nav height */
+    gap: 0.7rem;
+    height: 55px;
   }
   
   .cinderella-brand-container h2 {
-    font-size: 0.8rem;
-    letter-spacing: 0.2px;
+    font-size: 0.85rem;
+    font-weight: 600;
   }
   
   .cinderella-crown-logo {
-    height: 55px; /* Full nav height */
-  }
-  
-  .cinderella-nav-link {
-    font-size: 0.8rem;
-    padding: 0.35rem 0.7rem !important;
-    margin: 0.15rem;
-  }
-  
-  .cinderella-reserve-button {
-    max-width: 150px;
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+    height: 45px;
+    filter: brightness(1.3) contrast(1.3) saturate(1.2);
+    drop-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
   }
   
   .navbar-toggler {
@@ -377,31 +370,140 @@
   }
 }
 
-/* Extra small phones */
-@media (max-width: 360px) {
+/* MOBILE PORTRAIT - OPTIMIZED LOGO */
+@media (max-width: 576px) {
   .cinderella-header-wrapper {
-    min-height: 50px;
+    min-height: 52px; /* Balanced height */
+    padding: 0 0.8rem; /* Better padding */
   }
   
   .cinderella-header-wrapper .navbar {
-    height: 50px;
+    height: 52px;
   }
   
   .cinderella-brand-container {
-    height: 50px; /* Match nav height */
+    gap: 0.6rem; /* Good spacing */
+    height: 52px;
+  }
+  
+  .cinderella-brand-container h2 {
+    font-size: 0.8rem;
+    letter-spacing: 0.2px;
+    font-weight: 600;
+  }
+  
+  .cinderella-crown-logo {
+    height: 42px; /* Perfect mobile size */
+    filter: brightness(1.4) contrast(1.4) saturate(1.3); /* Enhanced for mobile */
+    drop-shadow: 0 0 10px rgba(212, 175, 55, 0.5); /* Better visibility */
+    transition: all 0.3s ease;
+  }
+  
+  /* Mobile logo hover effect */
+  .cinderella-crown-logo:hover {
+    filter: brightness(1.5) contrast(1.5) saturate(1.4);
+    transform: scale(1.05);
+    drop-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+  }
+  
+  .cinderella-nav-link {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem !important;
+    margin: 0.1rem;
+  }
+  
+  .cinderella-reserve-button {
+    max-width: 140px;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.7rem;
+  }
+  
+  .navbar-toggler {
+    width: 28px;
+    height: 28px;
+    padding: 0.1rem 0.2rem;
+  }
+  
+  .navbar-toggler-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .navbar-collapse {
+    margin-top: 0.3rem;
+    padding: 0.8rem 0;
+  }
+}
+
+/* EXTRA SMALL PHONES - PREMIUM LOGO */
+@media (max-width: 360px) {
+  .cinderella-header-wrapper {
+    min-height: 48px;
+    padding: 0 0.6rem;
+  }
+  
+  .cinderella-header-wrapper .navbar {
+    height: 48px;
+  }
+  
+  .cinderella-brand-container {
+    height: 48px;
+    gap: 0.5rem;
   }
   
   .cinderella-brand-container h2 {
     font-size: 0.75rem;
+    font-weight: 600;
   }
   
   .cinderella-crown-logo {
-    height: 50px; /* Full nav height */
+    height: 38px; /* Proportional */
+    filter: brightness(1.4) contrast(1.4) saturate(1.3);
+    drop-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
   }
   
   .cinderella-reserve-button {
-    max-width: 130px;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.7rem;
+    max-width: 120px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.65rem;
   }
+  
+  .navbar-toggler {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .navbar-toggler-icon {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* ENSURE NO WHITE BACKGROUND ON SCROLL */
+body {
+  background: #1a1a1a !important;
+}
+
+.navbar-collapse.show,
+.navbar-collapse.collapsing {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+}
+
+/* FIX BOOTSTRAP OVERRIDES */
+.navbar-dark .navbar-toggler {
+  border-color: #d4af37 !important;
+}
+
+.navbar-dark .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.25) !important;
+}
+
+/* LOGO QUALITY ENHANCEMENT FOR ALL SCREENS */
+.cinderella-crown-logo {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
