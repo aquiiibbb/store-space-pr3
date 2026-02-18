@@ -64,9 +64,11 @@ export default function Header() {
               </NavLink>
             </div>
 
-            <div className="cinderella-cta-wrapper ms-auto">
+            <div className="cinderella-cta-wrapper">
               <button className="cinderella-reserve-button">
-                <a style={{ textDecoration: "none" }} href="/form"> RESERVE NOW →</a>
+                <a style={{ textDecoration: "none" }} href="/form">
+                  RESERVE NOW →
+                </a>
               </button>
             </div>
           </div>
