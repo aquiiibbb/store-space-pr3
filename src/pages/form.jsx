@@ -230,7 +230,7 @@ export default function Form() {
                   <div className="space-info__header">
                     <div className="space-info__details">
                       <span className="space-info__number">#3008</span>
-                      <span className="space-info__size">10' x 15'</span>
+                      <span className="space-info__size">10' x 10'</span>
                     </div>
                     <a href="/rent" className="space-info__change-link">Change Space</a>
                   </div>
@@ -239,7 +239,7 @@ export default function Form() {
                   <div className="space-pricing">
                     <span className="space-pricing__badge">ONLINE</span>
                     <div className="space-pricing__display">
-                      <span className="space-pricing__amount">$43</span>
+                      <span className="space-pricing__amount">$170</span>
                       <span className="space-pricing__period">per month</span>
                     </div>
                   </div>
@@ -248,7 +248,7 @@ export default function Form() {
                   <div className="space-amenities">
                     <h4 className="space-amenities__title">Amenities</h4>
                     <ul className="space-amenities__list">
-                      <li>Elevator Access</li>
+                    
                       <li>Keypad Entry</li>
                       <li>Video Surveillance</li>
                       <li>Security Fencing</li>
@@ -259,7 +259,7 @@ export default function Form() {
                   <div className="space-breakdown">
                     <div className="space-breakdown__rent">
                       <span className="space-breakdown__label">Monthly Rent</span>
-                      <span className="space-breakdown__value">$16.89</span>
+                      <span className="space-breakdown__value">$170</span>
                     </div>
                     <div className="space-breakdown__note">(Prorated)</div>
 
@@ -267,14 +267,15 @@ export default function Form() {
                       <span>Admin Fee - $25</span>
                       <span>$25.00</span>
                     </div>
-                    <div className="space-breakdown__fee">
-                      <span>$12 Protection Plan</span>
-                      <span>$4.71</span>
-                    </div>
+                    
 
                     <div className="space-breakdown__total">
                       <span className="space-breakdown__total-label">Total Cost to Move-in:</span>
-                      <span className="space-breakdown__total-amount">$46.60</span>
+                      <span className="space-breakdown__total-amount">$195.00</span>
+                    </div>
+                    <div className="space-breakdown__fee">
+                      <span style={{fontSize:"12px",fontWeight:"700",color:"#212529"}}>Security Deposit - $50</span>
+                      <span style={{color:"gold",fontSize:"0.85rem",fontWeight:"700"}}>$50.00</span>
                     </div>
                   </div>
 

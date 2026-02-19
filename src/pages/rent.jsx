@@ -17,7 +17,7 @@ export default function Rent() {
             <div className="image-container">
               <img src="https://static.wixstatic.com/media/0db761_f9a580d140594e128a9257e8586be8a7~mv2.jpg/v1/crop/x_1,y_0,w_583,h_470/fill/w_136,h_97,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/10x15.jpg" alt="10x15 Storage Unit" />
             </div>
-            <div className="size-label">10 x 15</div>
+            <div className="size-label">10 x 10</div>
            </a> </div>
           <div className="storage-card"><a href="/tentwentyform">
             <div className="image-container">

@@ -125,7 +125,7 @@ export default function Home() {
             </div>
             <div className="unit-info">
               <h3>Large Units</h3>
-              <p className="unit-size">10' x 30'</p>
+              <p className="unit-size">10' x 20'</p>
               <p className="unit-desc">Great for entire home contents, vehicles, and commercial use</p>
               <span className="price"><a style={{textDecoration:"none"}} href="/rent">Book Now</a></span>
             </div>
