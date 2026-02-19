@@ -353,8 +353,8 @@ export default function UN5() {
                 <div className="space-info">
                   <div className="space-info__header">
                     <div className="space-info__details">
-                      <span className="space-info__number">#UN5</span>
-                      <span className="space-info__size">Storage Unit</span>
+                      <span className="space-info__number">#3008</span>
+                      <span className="space-info__size">12'x 40'</span>
                     </div>
                     <a href="/rent" className="space-info__change-link">Change Space</a>
                   </div>
