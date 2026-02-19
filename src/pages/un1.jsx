@@ -387,7 +387,7 @@ export default function UN1() {
                   <div className="space-pricing">
                     <span className="space-pricing__badge">ONLINE</span>
                     <div className="space-pricing__display">
-                      <span className="space-pricing__amount">$170</span>
+                      <span className="space-pricing__amount">$150</span>
                       <span className="space-pricing__period">per month</span>
                     </div>
                   </div>
@@ -406,7 +406,7 @@ export default function UN1() {
                   <div className="space-breakdown">
                     <div className="space-breakdown__rent">
                       <span className="space-breakdown__label">Monthly Rent</span>
-                      <span className="space-breakdown__value">$170</span>
+                      <span className="space-breakdown__value">$150</span>
                     </div>
                     <div className="space-breakdown__note">(Prorated)</div>
 
@@ -417,7 +417,7 @@ export default function UN1() {
 
                     <div className="space-breakdown__total">
                       <span className="space-breakdown__total-label">Total Cost to Move-in:</span>
-                      <span className="space-breakdown__total-amount">$195.00</span>
+                      <span className="space-breakdown__total-amount">$175.00</span>
                     </div>
                     <div className="space-breakdown__fee">
                       <span style={{fontSize:"12px",fontWeight:"700",color:"#212529"}}>Security Deposit - $50</span>
